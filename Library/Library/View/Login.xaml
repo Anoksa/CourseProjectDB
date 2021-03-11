@@ -1,0 +1,53 @@
+﻿<Window x:Class="Library.View.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Height="480" Width="360" FontFamily="Andalus" WindowStartupLocation="CenterScreen"
+        MinWidth="360" MinHeight="480" MaxWidth="360" MaxHeight="480"
+        ResizeMode="NoResize"
+        Title="Login" WindowStyle="None">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="256*"/>
+
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="149*"/>
+            <RowDefinition Height="324*"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Content="Логин:" HorizontalAlignment="Left" Margin="31,56.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="23" Width="56"/>
+        <Label Content="Пароль:" HorizontalAlignment="Left" Margin="31,100.667,0,0" Grid.Row="1" VerticalAlignment="Top" Height="27" Width="56"/>
+
+        <Button Click="CloseBt" Command="{Binding LoginCommand}" Style="{StaticResource MaterialDesignRaisedDarkButton}" Height="Auto"  materialDesign:ButtonAssist.CornerRadius="25"  Grid.Column="1" Margin="34.667,138.667,88.333,146.333" Grid.Row="1"  >
+            <TextBlock Text="Вход" />
+        </Button>
+
+        <PasswordBox PasswordChanged="password_PasswordChanged" Grid.Column="1" HorizontalAlignment="Left" Margin="24.333,87.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="153" Height="30"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="24.333,43.667,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Width="153">
+            <Binding Path="Login" UpdateSourceTrigger="PropertyChanged"  ValidatesOnDataErrors="True">
+                <Binding.ValidationRules >
+                    <ExceptionValidationRule />
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+        <Button  Grid.Column="1" HorizontalAlignment="Left" Margin="192.667,10,0,0" VerticalAlignment="Top" Width="53" Click="Exit" Height="27">
+            <materialDesign:PackIcon Kind="CloseOutline" Width="24" Height="23" Foreground="#FF0069C1" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        </Button>
+        
+
+
+        
+
+    </Grid>
+</Window>
